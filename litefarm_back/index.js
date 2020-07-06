@@ -7,6 +7,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(require('./routes/index'));
 
-app.listen(3000 , () => {
+app.listen(3000, () => {
     console.log('Listening in port', process.env.PORT || 3000);
 });

@@ -1,29 +1,23 @@
 /*global google*/
-
 import React, { useEffect } from 'react';
 import Form from 'react-bootstrap/Form'
-import {MeasureSystem} from './../config/globals';
+import { MeasureSystem } from './../config/globals';
+
 function AddFarm({ farmForm, changeFarmForm }) {
     let autocomplete;
-    setTimeout(() => {
-        autocomplete = new google.maps.places.Autocomplete(document.getElementById('address_google'), {
-            fields: ['place_id', 'name', 'types']
-        })
-        autocomplete.addListener('place_changed', () => {
-            const {place_id, name} =autocomplete.getPlace();
-            const [address_id, address_name] = [place_id, name];
-            changeFarmForm({...farmForm, address_id, address_name })
-        })
-    }, 100)
+    autocomplete = new google.maps.places.Autocomplete(document.getElementById('address_google'), {
+        fields: ['place_id', 'name', 'types']
+    });
+    autocomplete.addListener('place_changed', () => {
+        const { place_id, name } = autocomplete.getPlace();
+        const [address_id, address_name] = [place_id, name];
+        changeFarmForm({ ...farmForm, address_id, address_name });
+    });
     function dataChangeHandler(property) {
         return (event) => {
-            changeFarmForm({ ...farmForm, [property]: event.target.value })
+            changeFarmForm({ ...farmForm, [property]: event.target.value });
         }
     }
-
-    useEffect(() => {
-    },[])
-    
 
     return (
         <Form>

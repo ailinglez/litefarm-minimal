@@ -2,6 +2,7 @@ import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import './FarmCard.css'
+
 function FarmCard({ farm, activeFarm ,updateActiveFarm }) {
     return (
         <Row>

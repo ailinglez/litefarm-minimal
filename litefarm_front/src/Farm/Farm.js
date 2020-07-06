@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import { MeasureSystem } from './../config/globals';
 import { createField, getFields } from './service';
 
-function Farm({ farm }) {
+function Farm({ farm , updateActiveFarm}) {
     const newFieldBaseData = { name: null, total_area: '', points: null, farm_id: farm.id }
     const [mainMap, updateMap] = useState(null);
     const [mainDrawingManager, setDrawingManager] = useState(null);
@@ -33,7 +33,7 @@ function Farm({ farm }) {
             fieldList.forEach(({polygon}) => polygon.setMap(null));
         }
         updateFieldList([]);
-        getFields(farm.id).then(fieldListHandler)
+        getFields(farm.id).then(fieldListHandler);
     }, [farm])
 
     useEffect(() => {
@@ -101,18 +101,10 @@ function Farm({ farm }) {
             drawingControlOptions: {
                 position: google.maps.ControlPosition.TOP_CENTER,
                 drawingModes: ['polygon']
-            },
-            circleOptions: {
-                fillColor: '#ffff00',
-                fillOpacity: 1,
-                strokeWeight: 5,
-                clickable: false,
-                editable: true,
-                zIndex: 1
             }
         });
-        drawingManager.setMap(mainMap)
-        setDrawingManager(drawingManager)
+        drawingManager.setMap(mainMap);
+        setDrawingManager(drawingManager);
         google.maps.event.addListener(drawingManager, 'overlaycomplete', function (event) {
             if (event.type === 'polygon') {
                 const points = { data: [] };

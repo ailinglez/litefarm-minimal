@@ -47,12 +47,6 @@ function login(reqData, farmerData) {
 }
 
 
-function currentDatePlusExpiration() {
-    return new Date(Date.now() + TOKEN_EXPIRATION_TIME );
-}
-
-
-
 module.exports = {
     farmerSchema, farmerModel, hashUser, login
 }

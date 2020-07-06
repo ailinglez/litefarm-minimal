@@ -7,7 +7,7 @@ function LoginForm({ updateLoginStatus }) {
     const alertInitialState = { message: '', show: false, type: 'success' };
     const signupDataInitialState = { email: '', password: '', name: undefined };
     let [signupLoginData, updateData] = useState(signupDataInitialState);
-    let [showSignUp, modifyView] = useState(false);
+    let [showSignUp, showSignupView] = useState(false);
     let [alertMessage, changeAlertMessage] = useState(alertInitialState);
     let [validity, updateValidity] = useState([true, true, true]);
 
@@ -23,29 +23,31 @@ function LoginForm({ updateLoginStatus }) {
 
     function loginOrSignup() {
         const isValid = [emailValidation(), signupLoginData.password.length > 6, !!signupLoginData.name || !showSignUp];
+        updateValidity(isValid);
         if(!isValid.every(e => e)) {
-            updateValidity(isValid);
             return;
         }
-        updateValidity(isValid);
         const promise = showSignUp ? signup(signupLoginData) : login(signupLoginData);
         promise.then(() => {
             if (showSignUp) {
-                changeAlertMessage({ show: true, message: 'You have successfully signed up for lite farm. Go ahead and login! ', type: 'success' })
-                gracefullyCloseAlert();
+                createAlert('You have successfully signed up for lite farm. Go ahead and login! ', 'success' )
                 updateData({...signupDataInitialState});
-                modifyView(false)
+                showSignupView(false)
             } else {
                 updateLoginStatus(true);
             }
         }).catch((err) => {
             if (showSignUp) {
-                changeAlertMessage({ show: true, message: 'There was something wrong with your signup process. Try again or contact us.', type: 'danger' })
+                createAlert('There was something wrong with your signup process. Try again or contact us.', 'danger' )
             } else {
-                changeAlertMessage({ show: true, message: 'There was a problem login you in, check your credentials and try again.', type: 'danger' })
+                createAlert('There was a problem login you in, check your credentials and try again.', 'danger' );
             }
-            gracefullyCloseAlert();
         })
+    }
+
+    function createAlert(message, type){
+        changeAlertMessage({ show: true, message, type })
+        gracefullyCloseAlert();
     }
 
     function enterPressHandle(event){
@@ -115,14 +117,14 @@ function LoginForm({ updateLoginStatus }) {
                     {
                         !showSignUp &&
                         <small className="fr">Don't have an  account?
-                                <Button onClick={() => modifyView(true)} className="no-border" variant="outline-primary">Signup here!</Button>
+                                <Button onClick={() => showSignupView(true)} className="no-border" variant="outline-primary">Signup here!</Button>
                         </small>
                     }
                     {
                         showSignUp &&
                         <small>
                             Already Have an account ?
-                            <Button onClick={() => modifyView(false)} className="no-border" variant="outline-primary">Login</Button>
+                            <Button onClick={() => showSignupView(false)} className="no-border" variant="outline-primary">Login</Button>
                         </small>
                     }
                 </Col>

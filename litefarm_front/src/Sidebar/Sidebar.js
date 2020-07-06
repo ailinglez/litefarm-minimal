@@ -7,6 +7,7 @@ import { getFarms, createFarm } from './service'
 import FarmCard from './FarmCard';
 import './Sidebar.css';
 import AddFarm from './AddFarm';
+
 function Sidebar({ user, activeFarm, updateActiveFarm }) {
     const alertInitialState = { message: '', show: false, type: 'success' };
     const initialFarmForm = { name: null, address_id: null, address_name: null, measure_system: null, farmer_id: user.id };
