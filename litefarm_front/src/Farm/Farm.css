@@ -1,0 +1,32 @@
+.mt-5 {
+    margin-top: 5rem;
+}
+
+.pd-15 {
+    padding: 1.5rem;
+}
+
+#map {
+    min-height: 50%;
+}
+
+.mh-80 {
+    min-height: 80%;
+    height: 100%;
+}
+
+.create-field {
+    float: right;
+}
+
+.w-30 {
+    width: 30px;
+}
+
+.h-30 {
+    height: 30px;
+}
+
+.overflow-scroll {
+    overflow-y: scroll;
+}

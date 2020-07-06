@@ -6,6 +6,7 @@ const farmSchema = {
     name: new Validator().required().string(),
     total_area: new Validator().number(),
     address_id: new Validator().required().string(),
+    address_name: new Validator().string(),
     measure_system: new Validator().required().number()
 }
 

@@ -9,6 +9,8 @@ const { fieldModel } = require('../models/field');
 router.post('/', validateSchema(farmSchema), verify, (req,res) => {
     farmModel.insert(req.body).then(data => {
         res.status(200).json(data);
+    }).catch(() => {
+        res.status(500).json({message: 'Unknown error'});
     })
 })
 

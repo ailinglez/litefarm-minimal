@@ -1,0 +1,21 @@
+.blue-bordered {    
+    border-radius: 1rem 0 0 2rem;
+    border: 1px solid lightblue;
+    background-color: lightblue;
+}
+
+.full-height {
+    height: 100vh;
+    margin-top: 2rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+
+}
+.stretch {
+    padding: 0.4rem;
+    margin-left: 2rem;
+    min-width: 80%;
+    max-width: 100%;
+}

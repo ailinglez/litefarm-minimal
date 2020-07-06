@@ -16,8 +16,8 @@ CREATE TABLE "farm" (
 CREATE TABLE "field" (
   "id" int,
   "farm_id" int,
-  "total_area" decimal,
-  "points" numeric (16,14) ARRAY,
+  "total_area" numeric(16,2),
+  "points" jsonb,
   "name" VARCHAR(100)
 );
 

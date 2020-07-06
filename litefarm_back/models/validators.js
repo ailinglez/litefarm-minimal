@@ -31,11 +31,6 @@ class Validator {
         return this;
     }
 
-    numberArray() {
-        this._validations.push((property) => property instanceof Array && property.every((value) => !isNaN(value)))
-        return this;
-    }
-
     required() {
         this.isRequired = true;
         this._validations.push(this._isDefined)

@@ -1,0 +1,17 @@
+.mw-100 {
+    min-width: 100%;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.clickable:hover {
+    background-color: rgb(75, 197, 189);
+    color: whitesmoke;
+}
+
+.active {
+    background-color: rgb(75, 197, 189);
+    color: whitesmoke;
+}

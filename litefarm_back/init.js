@@ -21,7 +21,8 @@ async function create() {
         table.integer('farmer_id').unsigned().notNullable();
         table.string('name').notNullable();
         table.decimal('total_area', 16, 2);
-        table.string('address_id', 32).notNullable();
+        table.string('address_id').notNullable();
+        table.string('address_name');
         table.integer('measure_system', 1).notNullable();
         table.foreign('farmer_id').references('id').inTable('farmer');
     }).createTable('field', (table) => {
@@ -29,7 +30,7 @@ async function create() {
         table.string('name').notNullable();
         table.integer('farm_id').unsigned().notNullable();
         table.decimal('total_area', 16, 2);
-        table.specificType('points', 'numeric(16,14) ARRAY');
+        table.specificType('points', 'jsonb');
         table.foreign('farm_id').references('id').inTable('farm');
     });
 }
