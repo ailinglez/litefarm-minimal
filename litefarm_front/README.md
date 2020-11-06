@@ -1,14 +1,8 @@
 # Litefarm Test
 
-This repo contains the front end for the Litefarm test 
+This repo contains the front end for Minimal litefarm
 
 ### To run 
-
-Change this script tag in `public/index.html`
-```
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places,drawing"></script>
-```
-And replace `YOUR_API_KEY` with your current Google maps API Key (which needs to be active with places API, maps API and Geocoding API).
 
 Make sure you have Node installed and run 
 
