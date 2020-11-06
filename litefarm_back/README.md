@@ -1,13 +1,13 @@
 # Litefarm Backend
 
-This repo contains the backend of the Litefarm Test.
+Backend functionality for litefarm minimal.
 
 ## To run
 
 To run please create (or rename env.sample ) a `.env` file on the root folder, this should contain all the environment variables used 
 in the project. The file: env.sample contains all the keys with mocked values, please fill these with correct values. 
 
-IMPORTANT: You will need to create a Database (which is defaulted to litefarm) and use the name of the DB you created in this new .env 
+IMPORTANT: You will need to create a Database in [PostgresSQL](https://www.postgresql.org/download/) (which is defaulted to litefarm) and use the name of the DB you created in this new .env 
 (default is litefarm)
 
 After filling the environment file. Make sure you have Node and PostgreSQL installed and run 
